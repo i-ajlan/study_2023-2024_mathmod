@@ -1,14 +1,13 @@
 ---
 ## Front matter
 lang: ru-RU
-title: Структура научной презентации
-subtitle: Простейший шаблон
+title: Presentation 7
+subtitle: Lab 7
 author:
-  - Кулябов Д. С.
+  - Aristide Jean Loens A.
 institute:
-  - Российский университет дружбы народов, Москва, Россия
-  - Объединённый институт ядерных исследований, Дубна, Россия
-date: 01 января 1970
+  - RUDN
+date: 23 March 2024
 
 ## i18n babel
 babel-lang: russian
@@ -35,176 +34,71 @@ header-includes:
 :::::::::::::: {.columns align=center}
 ::: {.column width="70%"}
 
-  * Кулябов Дмитрий Сергеевич
-  * д.ф.-м.н., профессор
-  * профессор кафедры прикладной информатики и теории вероятностей
-  * Российский университет дружбы народов
-  * [kulyabov-ds@rudn.ru](mailto:kulyabov-ds@rudn.ru)
-  * <https://yamadharma.github.io/ru/>
-
-:::
-::: {.column width="30%"}
-
-![](./image/kulyabov.jpg)
+  * Aristide Jean Loens A.
+  * Student 
+  * RUDN
+  
 
 :::
 ::::::::::::::
 
-# Вводная часть
+# Introduction
 
-## Актуальность
+## Goal
 
-- Важно донести результаты своих исследований до окружающих
-- Научная презентация --- рабочий инструмент исследователя
-- Необходимо создавать презентацию быстро
-- Желательна минимизация усилий для создания презентации
+Build an advertising distribution schedule
 
-## Объект и предмет исследования
+## Task
 
-- Презентация как текст
-- Программное обеспечение для создания презентаций
-- Входные и выходные форматы презентаций
+Construct a graph of the distribution of advertising, the mathematical model of which is described
+with the following equation:
+1. dn/dt= (0.68 + 0.00018n(t))(N-n(t))
+2. dn/dt= (0.00001 + 0.35n(t))(N-n(t))
+3. dn/dt= (0.51sin(5t) + 0.31cos(3t)n(t))(N-n(t))
+At the same time, the audience size is N=963, at the initial moment 12 people know about the product. For
+case 2, determine at what point in time the speed of advertising distribution will be
+have the maximum value.
 
-## Цели и задачи
+## Theory Aspects
 
-- Создать шаблон презентации в Markdown
-- Описать алгоритм создания выходных форматов презентаций
+An advertising campaign for a new product or service is being organized. Necessary,
+so that future sales profits more than cover advertising costs.
+At first, costs may exceed profits because only a small part
+potential buyers will be informed about the new product. Then, when
+As the number of sales increases, profits also increase, and finally the moment will come,
+when the market becomes saturated and advertising the product becomes useless.
 
-## Материалы и методы
+# Results
 
-- Процессор `pandoc` для входного формата Markdown
-- Результирующие форматы
-	- `pdf`
-	- `html`
-- Автоматизация процесса создания: `Makefile`
+## First Case
 
-# Создание презентации
+![Parameters and different functions](image/img01.png){width=70%}
 
-## Процессор `pandoc`
+## Graph
+![First Graph](image/img02.png){width=70%}
 
-- Pandoc: преобразователь текстовых файлов
-- Сайт: <https://pandoc.org/>
-- Репозиторий: <https://github.com/jgm/pandoc>
+## Second Case
+![Functions of the second case](image/img03.png){width=70%}
 
-## Формат `pdf`
+## Graph
+![Second Graph](image/img04.png){width=70%}
 
-- Использование LaTeX
-- Пакет для презентации: [beamer](https://ctan.org/pkg/beamer)
-- Тема оформления: `metropolis`
+## Third case
 
-## Код для формата `pdf`
+![Functions of the third case](image/img06.png){ width=70%}
 
-```yaml
-slide_level: 2
-aspectratio: 169
-section-titles: true
-theme: metropolis
-```
+## Graph
 
-## Формат `html`
+![Third graph](image/img07.png){width=70%}
 
-- Используется фреймворк [reveal.js](https://revealjs.com/)
-- Используется [тема](https://revealjs.com/themes/) `beige`
+## Max speed propagation and time
 
-## Код для формата `html`
+![Max Speed propagation and the time](image/img08.png){width=70%}
 
-- Тема задаётся в файле `Makefile`
+## Final Slide 
 
-```make
-REVEALJS_THEME = beige 
-```
-# Результаты
-
-## Получающиеся форматы
-
-- Полученный `pdf`-файл можно демонстрировать в любой программе просмотра `pdf`
-- Полученный `html`-файл содержит в себе все ресурсы: изображения, css, скрипты
-
-# Элементы презентации
-
-## Актуальность
-
-- Даёт понять, о чём пойдёт речь
-- Следует широко и кратко описать проблему
-- Мотивировать свое исследование
-- Сформулировать цели и задачи
-- Возможна формулировка ожидаемых результатов
-
-## Цели и задачи
-
-- Не формулируйте более 1--2 целей исследования
-
-## Материалы и методы
-
-- Представляйте данные качественно
-- Количественно, только если крайне необходимо
-- Излишние детали не нужны
-
-## Содержание исследования
-
-- Предлагаемое решение задач исследования с обоснованием
-- Основные этапы работы
-
-## Результаты
-
-- Не нужны все результаты
-- Необходимы логические связки между слайдами
-- Необходимо показать понимание материала
+When the function describing word of mouth is much larger than the function responsible for paid advertising, the number of people aware of the product increases quickly.
 
 
-## Итоговый слайд
 
-- Запоминается последняя фраза. © Штирлиц
-- Главное сообщение, которое вы хотите донести до слушателей
-- Избегайте использовать последний слайд вида *Спасибо за внимание*
-
-# Рекомендации
-
-## Принцип 10/20/30
-
-  - 10 слайдов
-  - 20 минут на доклад
-  - 30 кегль шрифта
-
-## Связь слайдов
-
-::: incremental
-
-- Один слайд --- одна мысль
-- Нельзя ссылаться на объекты, находящиеся на предыдущих слайдах (например, на формулы)
-- Каждый слайд должен иметь заголовок
-
-:::
-
-## Количество сущностей
-
-::: incremental
-
-- Человек может одновременно помнить $7 \pm 2$ элемента
-- При размещении информации на слайде старайтесь чтобы в сумме слайд содержал не более 5 элементов
-- Можно группировать элементы так, чтобы визуально было не более 5 групп
-
-:::
-
-## Общие рекомендации
-
-::: incremental
-
-- На слайд выносится та информация, которая без зрительной опоры воспринимается хуже
-- Слайды должны дополнять или обобщать содержание выступления или его частей, а не дублировать его
-- Информация на слайдах должна быть изложена кратко, чётко и хорошо структурирована
-- Слайд не должен быть перегружен графическими изображениями и текстом
-- Не злоупотребляйте анимацией и переходами
-
-:::
-
-## Представление данных
-
-::: incremental
-
-- Лучше представить в виде схемы
-- Менее оптимально представить в виде рисунка, графика, таблицы
-- Текст используется, если все предыдущие способы отображения информации не подошли
-
-:::
 
